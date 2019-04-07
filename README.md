@@ -27,7 +27,7 @@ I want to see the history (operation, date, amount, balance) of my operations
 
 Acceptance criteria
 --------------------
-DATE       || CREDIT   || DEBIT    || balance
-14/01/2012 ||          || 500.00   || 2500.00
-13/01/2012 || 2000.00  ||          || 3000.00
-10/01/2012 || 1000.00  ||          || 1000.00
+>Date       | AMOUNT    | BALANCE
+>26/04/2019 | -500,00   | 200,00
+26/03/2019  | 400,00    | 700,00"
+10/02/2019  | 300,00    | 300,00"
