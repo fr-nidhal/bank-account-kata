@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class DateHandler {
 
     private static final String DD_MM_YYYY = "dd/MM/yyyy";
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DD_MM_YYYY);
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DD_MM_YYYY);
 
     public String today() {
         LocalDate today = localDate();

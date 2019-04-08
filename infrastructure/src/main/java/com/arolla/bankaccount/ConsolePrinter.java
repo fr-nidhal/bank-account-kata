@@ -1,16 +1,13 @@
 package com.arolla.bankaccount;
 
-import com.arolla.bankaccount.core.Amount;
-import com.arolla.bankaccount.core.Operation;
-import com.arolla.bankaccount.core.Printer;
-import com.arolla.bankaccount.core.StatementLine;
+import com.arolla.bankaccount.account.Printer;
+import com.arolla.bankaccount.amount.Amount;
+import com.arolla.bankaccount.statement.StatementLine;
 
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static com.arolla.bankaccount.core.Amount.amountOf;
 
 public class ConsolePrinter implements Printer {
     private Console console;
@@ -32,7 +29,7 @@ public class ConsolePrinter implements Printer {
 
     private void printStatements(List<StatementLine> statementLines) {
         statementLines.stream()
-                .map(statementLine -> formatStatementLine(statementLine)).
+                .map(this::formatStatementLine).
                 collect(Collectors.toCollection(LinkedList::new)).descendingIterator()
                 .forEachRemaining(console::printLine);
 
@@ -54,9 +51,6 @@ public class ConsolePrinter implements Printer {
         return amount.format(decimalFormat);
 
     }
-
-
-
 
 
 }

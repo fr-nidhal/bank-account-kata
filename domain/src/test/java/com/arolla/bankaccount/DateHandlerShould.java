@@ -4,10 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class DateHandlerShould {
 
@@ -15,7 +14,7 @@ public class DateHandlerShould {
     private DateHandler dateService;
 
     @Before
-    public void initialize() throws Exception {
+    public void initialize() {
         dateService = new DateHandler();
     }
 

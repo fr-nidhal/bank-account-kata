@@ -1,9 +1,9 @@
 package com.arolla.bankaccount;
 
-import com.arolla.bankaccount.core.Account;
-import com.arolla.bankaccount.core.AccountID;
-import com.arolla.bankaccount.core.AccountRepository;
-import com.arolla.bankaccount.core.Operation;
+import com.arolla.bankaccount.account.Account;
+import com.arolla.bankaccount.account.AccountID;
+import com.arolla.bankaccount.account.AccountRepository;
+import com.arolla.bankaccount.account.Operation;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +16,7 @@ public class InMemoryAccountRepository implements AccountRepository {
 
     @Override
     public List<Operation> allOperations(AccountID accountID) {
-       return findByID(accountID).getOperations();
+       return findAccountByID(accountID).getOperations();
     }
 
     @Override
@@ -24,11 +24,11 @@ public class InMemoryAccountRepository implements AccountRepository {
         allOperations(accountID).add(operation);
     }
     @Override
-    public Account synchronize(Account account) {
-        return accounts.putIfAbsent(account.getID(),account);
+    public Account save(Account account) {
+        return accounts.putIfAbsent(account.getAccountID(),account);
     }
     @Override
-    public Account findByID(AccountID accountID) {
+    public Account findAccountByID(AccountID accountID) {
         return accounts.getOrDefault(accountID,new Account(accountID,"empty"));
     }
 }
