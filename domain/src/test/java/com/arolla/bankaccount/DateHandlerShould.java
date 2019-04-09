@@ -15,7 +15,7 @@ public class DateHandlerShould {
 
     @Before
     public void initialize() {
-        dateService = new DateHandler();
+        dateService = new DateHandlerTest();
     }
 
     @Test
