@@ -18,10 +18,10 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <junint.version>4.4</junint.version>
-        <mockito.version>1.8.5</mockito.version>
+        <junit.version>5.4.0</junit.version>
+        <mockito.version>2.23.0</mockito.version>
         <assertj.version>3.11.1</assertj.version>
-        <surefire.version>3.0.0-M3</surefire.version>
+        <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
         <project.version>1.0-SNAPSHOT</project.version>
 
     </properties>
@@ -29,15 +29,24 @@
     <dependencies>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junint.version}</version>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test </scope>
+        </dependency>
+
+
+
+        <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
+            <artifactId>mockito-junit-jupiter</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
@@ -57,7 +66,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.version}</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <includes>
                         <include>**/*Should.java</include>
