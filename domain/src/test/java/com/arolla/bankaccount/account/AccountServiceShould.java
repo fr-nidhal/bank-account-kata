@@ -27,13 +27,13 @@ public class AccountServiceShould {
     @Mock
     AccountRepository accountRepository;
     @Mock
-    StatementsPrinter statementsSerive;
+    StatementsPrinter statementsPrinter;
     @Mock
     DateHandler dateHandler;
 
     @Before
     public void initialize(){
-        accountService =  new AccountService(accountRepository, statementsSerive,dateHandler);
+        accountService =  new AccountService(accountRepository, statementsPrinter,dateHandler);
     }
 
 
@@ -70,7 +70,7 @@ public class AccountServiceShould {
 
         accountService.printStatements(accountID);
 
-        verify(statementsSerive).printStatementsFrom(accountRepository.allOperations(accountID));
+        verify(statementsPrinter).printStatementsFrom(accountRepository.allOperations(accountID));
 
     }
 
