@@ -1,32 +1,33 @@
 package com.arolla.bankaccount;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.*;
 
+
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+@DisplayName("The Date Handler Should")
 public class DateHandlerShould {
 
     private static final String TODAY = "08/04/2019";
     private DateHandler dateService;
 
-    @Before
-    public void initialize() {
-        dateService = new DateHandlerTest();
+    @BeforeEach
+    void initialize() {
+        dateService = new DateHandlerStub();
     }
 
     @Test
-    public void return_today_as_a_string() {
+    void return_today_as_a_string() {
 
         String date = dateService.today();
-
-        assertThat(date,is(TODAY));
+        assertThat(date, is(TODAY));
     }
 
-    private class DateHandlerTest extends DateHandler {
+    private class DateHandlerStub extends DateHandler {
 
         @Override
         protected LocalDate localDate() {
